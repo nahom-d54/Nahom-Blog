@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    .hero {
+        width: 100%;
+        display: grid;
+        place-items: center;
+        text-align: center;
+
+    }
+    .herodisc {
+        font-size: 35px;
+        width: 40%;
+        font-family: serif;
+    }
+    .btn {
+        padding: 5px 10px;
+        background: none;
+        border: 1px black solid;
+        border-radius: 19px;
+        font-size: 20px;
+    }
+    .btn:hover {
+        cursor: pointer;
+        background: black;
+        color: white;
+    }
+    img {
+        width: 720px;
+        margin: 20px 0;
+    }
+    .imglink {
+        position: relative !important;
+    }
+    .over {
+        margin-top: 20px;
+        opacity: 0.8;
+        position: absolute;
+        top: 0;
+        width: 720px;
+        background: black;
+        height: inherit;
+    }
+    p.overlay {
+        margin: 0;
+        top: 500px;
+        z-index: 200;
+        color: white;
+        font-size: 2.6em;
+        width: 420px;
+    }
+    .articles {
+        width: 100%;
+        display: block;
+    }
+
+</style>
+
+<div class="hero">
+    <p class="herodisc">Lorem ipsum, dolor, sit amet consectetur adipisicing elit. Aperiam, neque.</p>
+    <button class="btn btn-outline">Subscribe</button>
+    {% load static %}
+
+    <div class="imglink">
+        <div class="over">
+            <p class="overlay">የApple ID መለያ መፍጠር በቀላሉ How to Create an Apple ID Account: <span>Everything You Need to Know</span></p>
+        </div>
+        <a href="https://www.youtube.com/watch?v=yIINnAqBB_E" class="rel"><img src="{% static 'maxresdefault.jpg' %}" alt=""></a>
+    </div>
+    <div class="articles">
+        <h3>Latest Articles</h1>
+        <div class="pick">
+            {{ picked }}
+        </div>
+        <ul>
+            {% for post in posts %}
+                <li><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></li>
+            {% endfor %}
+        </ul>    
+    </div>
+</div>
+
+{% endblock %}

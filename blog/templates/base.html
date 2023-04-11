@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <meta charset="utf-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        .footer {
+            text-align: center;
+
+        }
+        a {
+            text-decoration: none;
+        }
+        ul li {
+            list-style-type: none;
+            margin: 0 5px;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+        .navig {
+            display: flex;
+            flex-direction: row;
+        }
+        .socials ul {
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="lefthead">
+            <h1>The Nahom Blog</h1>
+            <nav>
+                <ul class="navig">
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">site</a></li>
+                    |
+                    <li><a href="#">Home</a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+        <div class="righthead">
+            <div class="socials">
+                <ul>
+                    <li>facebook</li>
+                    <li>facebook</li>
+                    <li>facebook</li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer class="footer">
+        <p>&copy; {{ year }} My Blog</p>
+    </footer>
+</body>
+</html>
